@@ -1,0 +1,14 @@
+
+Z	java:S106e"9Replace this use of System.out or System.err by a logger.(îœƒËÿÿÿÿÿ8¶ˆ²Ëù.
+j
+java:S1192$"MDefine a constant instead of duplicating this literal "content-type" 3 times.(ƒŒ¦†8ª¯´Ëù.
+Z	java:S106+"9Replace this use of System.out or System.err by a logger.(›Ù’»ıÿÿÿÿ8€¡Ûêô.
+T	java:S106c"9Replace this use of System.out or System.err by a logger.(Çğõ"8¶ˆ²Ëù.
+H
+java:S1481L"+Remove this unused "result" local variable.(¡¥¡Î8¶ˆ²Ëù.
+Z	java:S106M"9Replace this use of System.out or System.err by a logger.(²¯¿òøÿÿÿÿ8¶ˆ²Ëù.
+U	java:S106\"9Replace this use of System.out or System.err by a logger.(Ğ‚¼8¶ˆ²Ëù.
+Z	java:S106k"9Replace this use of System.out or System.err by a logger.(Æì° úÿÿÿÿ8¶ˆ²Ëù.
+h
+java:S1192$"KDefine a constant instead of duplicating this literal "text/plain" 3 times.(ƒŒ¦†8ª¯´Ëù.
+Z	java:S1062"9Replace this use of System.out or System.err by a logger.(Æì° úÿÿÿÿ8Ê¼µËù.

@@ -1,0 +1,15 @@
+
+R
+java:S1128"7Remove this unused import 'java.util.stream.Collector'.(ß‹ÎÓøÿÿÿÿ
+N	java:S106,"9Replace this use of System.out or System.err by a logger.(¹¶ß®
+N	java:S106;"9Replace this use of System.out or System.err by a logger.(®êÀ¾
+D
+java:S3740"/Provide the parametrized type for this generic.(Ï²™
+S
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ
+E
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òþÿÿÿÿ
+F
+java:S1905 "+Remove this unnecessary cast to "Function".(­íÔ½ýÿÿÿÿ
+A
+java:S16029",Remove useless curly braces around statement(î®­$
