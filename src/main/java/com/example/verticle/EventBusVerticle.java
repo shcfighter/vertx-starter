@@ -1,4 +1,4 @@
-package com.example.starter;
+package com.example.verticle;
 
 import com.example.handler.IDataHandler;
 import io.vertx.core.AbstractVerticle;

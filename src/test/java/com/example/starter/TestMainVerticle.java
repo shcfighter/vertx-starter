@@ -1,5 +1,6 @@
 package com.example.starter;
 
+import com.example.verticle.MainVerticle;
 import io.vertx.core.Vertx;
 import io.vertx.junit5.VertxExtension;
 import io.vertx.junit5.VertxTestContext;

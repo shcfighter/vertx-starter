@@ -5,6 +5,6 @@ import io.vertx.core.Vertx;
 
 public class Test {
   public static void main(String[] args) {
-    Vertx.vertx().deployVerticle("com.example.starter.MysqlVerticle", new DeploymentOptions().setInstances(4));
+    Vertx.vertx().deployVerticle("com.example.verticle.MysqlVerticle", new DeploymentOptions().setInstances(4));
   }
 }

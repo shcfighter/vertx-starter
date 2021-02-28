@@ -1,4 +1,4 @@
-package com.example.starter;
+package com.example.verticle;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
@@ -7,31 +7,32 @@ import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.json.JsonArray;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
-import io.vertx.pgclient.PgConnectOptions;
-import io.vertx.pgclient.PgPool;
+import io.vertx.mysqlclient.MySQLConnectOptions;
+import io.vertx.mysqlclient.MySQLPool;
 import io.vertx.sqlclient.PoolOptions;
 import io.vertx.sqlclient.Row;
 import io.vertx.sqlclient.RowSet;
 
 import java.util.Iterator;
 
-public class PgVerticle extends AbstractVerticle {
+public class MysqlVerticle extends AbstractVerticle {
 
-  PgPool pgClient;
-  int i = 0;
-
+  MySQLPool client;
   @Override
   public void start(Promise<Void> startPromise) throws Exception {
-    PgConnectOptions connectOptions = new PgConnectOptions()
-      .setPort(5432)
-      .setHost("127.0.0.1")
-      .setDatabase("postgres")
-      .setUser("postgres")
-      .setPassword("h123456");
+    MySQLConnectOptions connectOptions = new MySQLConnectOptions()
+      .setPort(3306)
+      .setHost("localhost")
+      .setDatabase("test")
+      .setUser("root")
+      .setPassword("Hh123456");
 
-    PoolOptions poolOptions = new PoolOptions().setMaxSize(10);
+    // Pool options
+    PoolOptions poolOptions = new PoolOptions()
+      .setMaxSize(10);
 
-    pgClient = PgPool.pool(vertx, connectOptions, poolOptions);
+    // Create the client pool
+    client = MySQLPool.pool(vertx, connectOptions, poolOptions);
 
     HttpServer server = vertx.createHttpServer();
     Router router = Router.router(vertx);
@@ -53,11 +54,11 @@ public class PgVerticle extends AbstractVerticle {
     startPromise.complete();
   }
 
-  public void searchHandler(RoutingContext routingContext) {
-    pgClient.getConnection().compose(conn -> {
+  public void searchHandler(RoutingContext routingContext){
+    client.getConnection().compose(conn -> {
       // All operations execute on the same connection
       return conn
-        .query("SELECT * FROM PUBLIC.bodyguard_config limit 10")
+        .query("SELECT * FROM bodyguard_config limit 10")
         .execute()
         .onComplete(ar -> {
           // Release the connection to the pool
@@ -76,9 +77,8 @@ public class PgVerticle extends AbstractVerticle {
           jsonArray.add(row.toJson());
         }
         // Write to the response and end it
-        i++;
         response.end(jsonArray.encodePrettily());
-        //System.out.println(Thread.currentThread().getName() + "  " + i);
+        //System.out.println("Done");
       } else {
         System.out.println("Something went wrong " + ar.cause().getMessage());
       }

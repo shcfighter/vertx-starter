@@ -1,4 +1,4 @@
-package com.example.starter;
+package com.example.verticle;
 
 import com.example.handler.IDataHandler;
 import com.example.handler.impl.DataHandler;
@@ -18,14 +18,10 @@ public class MainVerticle extends AbstractVerticle {
     vertx.deployVerticle(ServerVerticle.class.getName(), new DeploymentOptions().setInstances(1));
     vertx.deployVerticle(EventBusVerticle.class.getName(), new DeploymentOptions().setInstances(4));*/
 
-    //vertx.deployVerticle("com.example.starter.RedisVerticle");
+    //vertx.deployVerticle(RedisVerticle.class.getName());
 
-    vertx.deployVerticle("com.example.starter.PgVerticle", new DeploymentOptions().setInstances(1));
+    vertx.deployVerticle(PgVerticle.class.getName(), new DeploymentOptions().setInstances(1));
 
     startPromise.complete();
   }
-
-  /*public static void main(String[] args) {
-    Vertx.vertx().deployVerticle("com.example.starter.MainVerticle");
-  }*/
 }
